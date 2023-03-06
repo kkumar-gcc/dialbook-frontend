@@ -58,13 +58,14 @@ function ContactList({ contacts, getContacts }) {
   }
   function renderContacts() {
     return contacts.map((contact, i) => {
+      var image =`https://api.dicebear.com/5.x/lorelei/jpg?seed=${contact.name}`
       return (
         <MDBCol key={i} md="4" xs="12" sm="6" lg="3">
           <MDBCard className="shadow-sm">
             <MDBCardBody className="p-3">
               <div className="d-flex flex-row p-0 align-items-center mb-3">
                 <img
-                  src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
+                  src={image}
                   className="rounded-circle me-3"
                   height="50px"
                   alt="avatar"
