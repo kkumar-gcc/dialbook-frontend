@@ -41,15 +41,13 @@ function ContactList({ contacts, getContacts }) {
     }
   }
   async function deleteContact(e) {
-    var BASE_URL = "http://localhost:5000";
     e.preventDefault();
 
     try {
       const contactData = {
         contactId: contactId,
       };
-      // await axios.post("http://localhost:5000/customer/", customerData);
-      await axios.post(`${BASE_URL}/contact/delete`, contactData);
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/contact/delete`, contactData);
       setDeleteContactModal(false);
       getContacts();
     } catch (err) {
